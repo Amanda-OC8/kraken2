@@ -1,0 +1,16 @@
+.nav-bar {
+    margin-bottom: 30px;
+    background-color: #3F3D43;
+}
+
+.search-bar {
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px 150px 5px 5px;
+    background-color: #eae4c6ff;
+    box-shadow: 3px 3px 3px #3f3d43ff;
+}
+
+.search-bar:focus { 
+   outline: none;
+}

@@ -1,0 +1,84 @@
+/* Dark mode palette */
+/* CSS HEX 
+--xiketic: #050517ff;
+--jet: #3f3d43ff;
+--nickel: #78756fff;
+--eggshell: #eae4c6ff;
+--gold-crayola: #efc88bff;
+--banana-mania: #f4e3b2ff;
+--light-gray: #d3d5d7ff; */
+
+/* SCSS HEX
+$xiketic: #050517ff;
+$jet: #3f3d43ff;
+$nickel: #78756fff;
+$eggshell: #eae4c6ff;
+$gold-crayola: #efc88bff;
+$banana-mania: #f4e3b2ff;
+$light-gray: #d3d5d7ff; */
+
+
+/* SCSS Gradient 
+$gradient-top: linear-gradient(0deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-right: linear-gradient(90deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-bottom: linear-gradient(180deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-left: linear-gradient(270deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-top-right: linear-gradient(45deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-bottom-right: linear-gradient(135deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-top-left: linear-gradient(225deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-bottom-left: linear-gradient(315deg, #050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff);
+$gradient-radial: radial-gradient(#050517ff, #3f3d43ff, #78756fff, #eae4c6ff, #efc88bff, #f4e3b2ff, #d3d5d7ff); */
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Nunito:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&display=swap');
+
+body {
+    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
+    color: #eae4c6ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 30px;
+    font-family: 'Dosis';
+    color: #EFC88B
+}
+
+main {
+    margin-bottom: 65px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.drop-toggle {
+    background:#343a40;
+ }
+
+ .dropdown-item:hover {
+    background:rgba(52, 58, 64, 0.8);
+
+ } 
+
+ .link-drop {
+     color: white
+ }
+ 
+ .link-drop:hover {
+     color: rgba(255, 255, 255, 0.8)
+ }
+
+ .warning-drop {
+    background: #D00000;
+    border-radius: 5px;
+ }
+
+.warning-message {
+    margin-bottom: 15px;
+    color:  #D00000;
+    font-weight: 700;
+}
+
+.search-img {
+    width: 30px;
+}

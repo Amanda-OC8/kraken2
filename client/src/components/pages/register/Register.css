@@ -1,0 +1,15 @@
+.register-box {
+    color: white;
+}
+
+.signup {
+    border: 2px solid white;
+    border-radius: 30px;
+    height: 50%;
+}
+.signup h1 {
+    width: 100%;
+}
+.reg-btn {
+    width: 100%;
+}

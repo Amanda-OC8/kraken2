@@ -1,0 +1,4 @@
+.log-in-btns {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,13 @@
+.dark-mode {
+   background-color:#78756F;
+   border-color: #3F3D43;
+   text-align: center;
+   margin: 15px auto;
+}
+
+.show-more {
+    color: #efc88bff;
+}
+.show-more:hover {
+    color: #E9B35D;
+}

@@ -1,0 +1,18 @@
+tr {
+    color: #eae4c6ff;
+    border: none
+}
+.charac-title {
+    font-family: 'Dosis';
+    color: #EFC88B;
+    font-size: 1.2em;
+    width: 70px
+}
+tbody {
+    background-color: #303030;
+    border: none;
+}
+
+table{
+    border: none;
+}

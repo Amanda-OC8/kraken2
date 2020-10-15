@@ -1,0 +1,21 @@
+.tree-link {
+    color: #efc88bff;
+}
+
+.tree-link:hover {
+    color:#f8E6C9;
+    text-decoration: none;
+}
+
+.tree-link:visited {
+    color: #E9B35D
+}
+
+.image {
+    width: 15px;
+    margin: auto 3px;
+}
+
+li {
+    padding-bottom: 15px;
+}

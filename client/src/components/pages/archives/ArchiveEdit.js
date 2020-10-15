@@ -1,0 +1,108 @@
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
+
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+
+import { Editor } from "@tinymce/tinymce-react"
+
+import archiveService from "../../../service/archive.service"
+
+class ArchiveEdit extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+        this.archiveService = new archiveService()
+
+
+    }
+
+
+
+    componentDidMount = () => {
+
+        this.archiveService
+            .getArchive(this.props.match.params.project_id, this.props.match.params.folder_id, this.props.match.params.archive_id)
+            .then(response => this.setState(response.data))
+            .catch(err => console.log('Error:', err))
+    }
+
+    handleFormSubmit = e => {
+
+        e.preventDefault()
+
+        this.archiveService
+            .editArchive(this.props.match.params.project_id, this.props.match.params.folder_id, this.props.match.params.archive_id, this.state)
+            .then(response => console.log(response))
+            .catch(err => console.log('Error:', { err }))
+
+        this.setState({
+            originProject: this.props.match.params.project_id,
+            parentFolder: this.props.match.params.folder_id,
+            name: "",
+            description: "",
+            owner: this.props.match.params.user_id,
+            isPublic: false,
+        })
+        this.props.history.push("/projects/5f7f221e7cd378045a145123/folder/5f845fd3500c7311e89ff217/archive/5f86c1f1d81694209ee68033/details")
+    }
+
+    handleInputChange = e => {
+        let { name, value } = e.target
+
+        this.setState({ [name]: value })
+        console.log(this.state)
+    }
+
+    handleChange = (e) => {
+        this.setState({ description: e });
+    }
+
+    render() {
+
+        return (
+            <Container>
+                <Row>
+                    <Col>
+                        <Form onSubmit={this.handleFormSubmit}>
+                            <h2>Da vida al Kraken</h2>
+
+                            <Form.Group>
+                                <Form.Label>Nombre*</Form.Label>
+                                <Form.Control required type="text" name="name" value={this.state.name} placeholder={this.state.name} onChange={this.handleInputChange} />
+                            </Form.Group>
+
+                            <Form.Group>
+                                <Form.Label>Puedes escribir aquí*</Form.Label>
+                                <Editor
+                                    required
+                                    name="description"
+                                    value={this.state.description}
+                                    init={{
+                                        height: 500,
+                                        menubar: false,
+                                    }}
+                                    onEditorChange={this.handleChange}
+
+                                />
+                                <br />
+
+
+
+                                <Button variant='dark' className='btn-shape btn-dark-mode-config' type="submit">Editar</Button>
+
+
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+        )
+    }
+}
+
+export default withRouter(ArchiveEdit)
