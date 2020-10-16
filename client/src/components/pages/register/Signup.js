@@ -42,7 +42,7 @@ class Signup extends Component {
 
 
     render() {
-        console.log(this.state.errorMessage)
+        
         return (
 
             <Container>

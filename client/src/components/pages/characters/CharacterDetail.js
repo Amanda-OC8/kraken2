@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-import characterService from "../../../service/character.service"
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,9 +8,10 @@ import Col from 'react-bootstrap/Col'
 import Table from 'react-bootstrap/Table'
 import Modal from 'react-bootstrap/Modal'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 import CharacterEdit from './CharacterEdit'
+
+import characterService from "../../../service/character.service"
 
 import './CharacterDetail.css'
 

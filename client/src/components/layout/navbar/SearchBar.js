@@ -12,9 +12,7 @@ class SearchBar extends Component {
 
         return (
             <>
-
                 <input className="search-bar" type="text" placeholder='Buscador' onChange={this.handleSearch} />
-
 
             </>
         )

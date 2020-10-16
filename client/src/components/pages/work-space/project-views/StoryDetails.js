@@ -49,7 +49,7 @@ class StoryDetails extends Component {
             <Container>
                 <Row className="justify-content-md-center">
                     <Col className="m-auto" md={{ span: 8 }} >
-                        {ownArchive && "Es mi personaje"}
+                        
                         <h2>{this.state.story.name}</h2>
                         {/* {ownProject && (<div><h4>Archivos Relacionados: </h4><p>{this.state.relatedArchives}</p></div>)} */}
                         <div dangerouslySetInnerHTML={{ __html: this.state.story.description }}></div>
@@ -58,8 +58,8 @@ class StoryDetails extends Component {
 
                 </Row>
                 <Row>
-                    <Col md={{ span: 3 }}>   <Link className="btn-shape btn-dark-mode-config" to={`/projects/${this.props.match.params.project_id}`}>Volver al proyecto</Link> </Col>
-                    <Col md={{ span: 3 }}>   <Link className="btn-shape btn-dark-mode-config" to={`/projects/${this.props.match.params.project_id}/${this.props.match.params.folder_id}/${this.props.match.params.archive_id}/archive/edit`}>Editar archivo</Link> </Col>
+                    <Col md={{ span: 3 }}>   <Link className="btn-shape btn-dark-mode-config" to={`/projects/${this.props.match.params.project_id}/details`}>Volver al proyecto</Link> </Col>
+                    <Col md={{ span: 3 }}>   <Link className="btn-shape btn-dark-mode-config" to={`/projects/story/${this.props.match.params.project_id}/edit/${this.state.story._id}`}>Editar historia</Link> </Col>
                     <Col md={{ span: 3 }}> <Link className="btn-shape btn-dark-mode-config" to={`/profile`}>Volver a tu perfil</Link> </Col>
                 </Row>
 

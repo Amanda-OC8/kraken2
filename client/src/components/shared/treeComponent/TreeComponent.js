@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-import commonService from '../../../service/common.service'
-import characterService from '../../../service/character.service'
-import folderService from '../../../service/folder.service'
-import archiveService from '../../../service/archive.service'
 
 import Collapse from 'react-bootstrap/Collapse'
 import NavLink from 'react-bootstrap/NavLink'
 import Modal from 'react-bootstrap/Modal'
 
-
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-
-import './TreeComponent.css'
 import Add from './add.svg'
 import Edit from './edit-color.svg'
 import Delete from './delete.svg'
 import FolderNew from '../../pages/folders/FolderNew'
 import FolderEdit from '../../pages/folders/FolderEdit'
+import './TreeComponent.css'
 
+import commonService from '../../../service/common.service'
+import characterService from '../../../service/character.service'
+import folderService from '../../../service/folder.service'
+import archiveService from '../../../service/archive.service'
 
 class TreeComponent extends Component {
     constructor(props) {
@@ -84,8 +82,8 @@ class TreeComponent extends Component {
 
     deleteArchive = (folder_id, archive_id) => {
 
-        this.folderService
-            .deleteFolder(this.props.match.params.project_id, folder_id, archive_id)
+        this.archiveService
+            .deleteArchive(this.props.match.params.project_id, folder_id, archive_id)
             .then(() => console.log("borrado"))
             .catch(err => console.log('Error:', err))
 
@@ -161,7 +159,7 @@ class TreeComponent extends Component {
 
         }
         
-
+        console.log(treeC)
 
         return (
             <>
@@ -192,16 +190,16 @@ class TreeComponent extends Component {
                     <Collapse in={this.state.showMoreFolders}>
                         <span>
                             {existTree && treeC.folders.map((elm, index) => <li key={index}><Link className="tree-link" to={`/projects/${this.props.match.params.project_id}/folder/${elm.id}/details`}>{elm.name}</Link>
-                                <Link to={`/projects/${this.props.match.params.project_id}/${elm.id}/archive/new`}><img className="image" src={Add} alt="Añadir"></img></Link>
+                                <Link to={`/projects/${this.props.match.params.project_id}/folder/${elm.id}/archive/new`}><img className="image" src={Add} alt="Añadir"></img></Link>
                                 <Link onClick={() => this.handleModalEditFolder(true, elm.id)}><img className="image" src={Edit} alt="Editar" /></Link>
                                 
-                                <Link onClick={() => this.handleModalDeleteAlert(true, "character", elm.id, null)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>)}
+                                <Link onClick={() => this.handleModalDeleteAlert(true, "folder", elm.id, null)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>)}
 
 
-                            {existTree && treeC.nested.map((elm, index) => <li key={index}><Link className="tree-link" to={`/projects/${this.props.match.params.project_id}/${elm.parent.id}/details`}>{elm.parent.name}</Link> <Link to={`/projects/${this.props.match.params.project_id}/${elm.parent.id}/archive/new`}><img className="image" src={Add} alt="Añadir"></img></Link>
+                            {existTree && treeC.nested.map((elm, index) => <li key={index}><Link className="tree-link" to={`/projects/${this.props.match.params.project_id}/folder/${elm.parent.id}/details`}>{elm.parent.name}</Link> <Link to={`/projects/${this.props.match.params.project_id}/folder/${elm.parent.id}/archive/new`}><img className="image" src={Add} alt="Añadir"></img></Link>
                                 
                                 <Link onClick={() => this.handleModalEditFolder(true, elm.parent.id)}><img className="image" src={Edit} alt="Editar" /></Link>
-                                <Link onClick={() => this.handleModalDeleteAlert(true, "character", elm.parent.id, null)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>)}
+                                <Link onClick={() => this.handleModalDeleteAlert(true, "folder", elm.parent.id, null)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>)}
 
                         </span>
                     </Collapse>
@@ -214,10 +212,10 @@ class TreeComponent extends Component {
                         <span>
                             {existTree &&
                                 <ul>
-                                    {treeC.nested.map(elm => elm.nested ? elm.nested.map((subelm, index) => <li key={index}>{elm.parent.name}: <Link className="tree-link" to={`/projects/${this.props.match.params.project_id}/${elm.parent.id}/archive/${subelm.id}/details`}>{subelm.name}</Link>
+                                    {treeC.nested.map(elm => elm.nested ? elm.nested.map((subelm, index) => <li key={index}>{elm.parent.name}: <Link className="tree-link" to={`/projects/${this.props.match.params.project_id}/folder/${elm.parent.id}/archive/${subelm.id}/details`}>{subelm.name}</Link>
 
-                                        <Link to={`/projects/${this.props.match.params.project_id}/${elm.parent.id}/${subelm.id}/archive/edit`}><img className="image" src={Edit} alt="Editar" /></Link>
-                                        <Link onClick={() => this.handleModalDeleteAlert(true, "character", elm.parent.id, subelm.id)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>) : null)}
+                                        <Link to={`/projects/${this.props.match.params.project_id}/folder/${elm.parent.id}/${subelm.id}/archive/edit`}><img className="image" src={Edit} alt="Editar" /></Link>
+                                        <Link onClick={() => this.handleModalDeleteAlert(true, "archive", elm.parent.id, subelm.id)}><img className="image" src={Delete} alt="Eliminar"></img></Link></li>) : null)}
                                 </ul>}
                         </span>
                     </Collapse>
@@ -237,7 +235,7 @@ class TreeComponent extends Component {
                         <Modal.Title>Editar la carpeta</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <FolderEdit{...this.props} folder_id={this.state.selectFolder} closeModal={() => this.handleModal(false)} refreshList={this.loadCommon} />
+                        <FolderEdit{...this.props} folder_id={this.state.selectFolder} closeModal={() => this.handleModalEditFolder(false)} refreshList={this.loadCommon} />
                     </Modal.Body>
                 </Modal>
 

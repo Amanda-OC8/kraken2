@@ -19,5 +19,7 @@ export default class ProjectService {
     // editTimeline = project_id => this.api.put(`/timeline/edit/project/${project_id}`)
     // addTimeline = project_id => this.api.post(`/timeline/new/project/${project_id}`)
     getStory = project_id => this.api.get(`/project/story/${project_id}`)
+    editStory = (project_id, story_id, story) => this.api.put(`/project/story/${project_id}/edit/${story_id}`, story)
+
 
 }

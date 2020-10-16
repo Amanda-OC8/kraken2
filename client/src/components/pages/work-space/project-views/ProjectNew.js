@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import PopUpAlert from '../../../shared/popUpAlert/PopUpAlert'
+
 
 import projectService from "../../../../service/project.service"
 
@@ -123,7 +123,7 @@ class ProjectNew extends Component {
                             </Form.Group>
 
                             <Button className="btn-shape btn-dark-mode-config" variant="dark" type="submit">Crear</Button>
-                            {this.state.createdProject  && <PopUpAlert title="Proyecto creado" text="Se ha creado tu proyecto" />}
+                            
                         </Form>
                     </Col>
                 </Row>

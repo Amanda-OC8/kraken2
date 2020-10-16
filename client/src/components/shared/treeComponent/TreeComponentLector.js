@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+
+import Collapse from 'react-bootstrap/Collapse'
+import NavLink from 'react-bootstrap/NavLink'
+
+import './TreeComponent.css'
 
 import commonService from '../../../service/common.service'
 import characterService from '../../../service/character.service'
 import folderService from '../../../service/folder.service'
 import archiveService from '../../../service/archive.service'
-
-import Collapse from 'react-bootstrap/Collapse'
-import NavLink from 'react-bootstrap/NavLink'
-
-
-
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-
-import './TreeComponent.css'
-
 
 
 class TreeComponent extends Component {
@@ -99,7 +95,7 @@ class TreeComponent extends Component {
 
 
         }
-        console.log(this.props)
+        
 
 
         return (

@@ -124,24 +124,15 @@ router.get('/story/:project_id', (req, res) => {
 
 })
 
-router.put('/story/:project_id/edit', (req, res) => {
+router.put('/story/:project_id/edit/:archive_id', (req, res) => {
 
-    const { description } = req.body
+    const { name, description } = req.body
 
-    Archive.find({}, { description: 1, name: 1 })
-        .populate({
-            path: "originProject",
-            match: { _id: req.params.project_id },
-            select: "title"
-        })
-        .populate("owner")
+    Archive.findByIdAndUpdate(req.params.archive_id, { name, description })
         .then(response => {
-            let filterResponse = response.filter(elm => elm.originProject != null)
-            res.json(filterResponse)
-
-            return Archive.findByIdAndUpdate(filterResponse[0]._id, { description })
+            console.log(response)
+            res.json(response)
         })
-        .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 
 })

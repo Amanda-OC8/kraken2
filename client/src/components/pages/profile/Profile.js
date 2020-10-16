@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
 
-
-
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import ProfileEdit from './ProfileEdit'
 
-
-import ProfileService from "../../../service/profile.service"
 import BaseCard from "../../shared/cards/BaseCard"
 import Spinner from "../../shared/spinner/Spinner"
 
-
+import ProfileService from "../../../service/profile.service"
 
 import '../../App.css'
 import '../modal/Modal.css'

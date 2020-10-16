@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Login from './pages/login/Login'
-// import Signup from './pages/register/Signup'
 import Profile from './pages/profile/Profile'
 import NavBar from './layout/navbar/NavBar'
 import Footer from './layout/footer/Footer'
@@ -12,7 +11,6 @@ import Register from './pages/register/Register'
 import authService from './../service/auth.service'
 import projectService from './../service/project.service'
 import profileService from './../service/profile.service'
-
 
 
 import './App.css'
@@ -33,6 +31,8 @@ import AllArchivesInFolder from './pages/archives/AllArchivesInFolder'
 import ArchiveEdit from './pages/archives/ArchiveEdit'
 
 import StoryDetails from './pages/work-space/project-views/StoryDetails'
+import StoryEdit from './pages/work-space/project-views/StoryEdit'
+
 
 
 
@@ -94,6 +94,7 @@ class App extends Component {
             <Route path="/projects/:project_id/folder/:folder_id/:archive_id/archive/edit" exact render={props => <ArchiveEdit theUser={this.state.loggedInUser} {...props} />} />
 
             <Route path="/projects/story/:project_id" exact render={props => <StoryDetails theUser={this.state.loggedInUser} {...props} />} />
+            <Route path="/projects/story/:project_id/edit/:story_id" exact render={props => <StoryEdit theUser={this.state.loggedInUser} {...props} />} />
 
           </main>
           <Switch />

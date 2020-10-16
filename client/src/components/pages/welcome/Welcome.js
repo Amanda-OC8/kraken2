@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-
 import { Link } from 'react-router-dom'
-import Logo from './logo-kraken-sfondo.png'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
+
 import Login from '../login/Login'
+
+import Logo from './logo-kraken-sfondo.png'
 import "../../shared/buttons/button.css"
 import './Welcome.css'
-
 import '../modal/Modal.css'
 
 

@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-import projectService from "../../../../service/project.service"
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import Button from 'react-bootstrap/Button'
-import '../../../App.css'
+import Modal from 'react-bootstrap/Modal'
 
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import ProjectEdit from './ProjectEdit'
 import TreeComponent from '../../../shared/treeComponent/TreeComponent'
 import TreeComponentLector from '../../../shared/treeComponent/TreeComponentLector'
-import Modal from 'react-bootstrap/Modal'
-import '../../modal/Modal.css'
 
+import '../../modal/Modal.css'
+import '../../../App.css'
+
+import projectService from "../../../../service/project.service"
 
 
 class ProjectDetails extends Component {
@@ -79,12 +78,7 @@ class ProjectDetails extends Component {
                 <Container>
                     
                     <Row className="justify-content-md-center">
-
                         <Col md={{ span: 2 }}>
-
-
-                            {ownProject ? (
-
                                 <Dropdown>
                                     <Dropdown.Toggle className="btn-shape btn-dark-mode-config" variant="dark">Acciones</Dropdown.Toggle>
                                     <Dropdown.Menu className="drop-toggle">
@@ -96,14 +90,7 @@ class ProjectDetails extends Component {
                                         <Dropdown.Item><Link className="nav-link link-drop" to={`/profile`}>Volver a tu perfil</Link> </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
-                            ) : null}
                         </Col>
-                        {/* <Col md={{ span: 4 }}>   <Link className="btn-shape btn-dark-mode-config" to={`/projects/${this.props.match.params.project_id}/all-characters/`}>Todos los personajes</Link> </Col> */}
-
-
-                        {/* {ownProject ? (
-                            <Col md={{ span: 4 }}> <Link className="btn-shape btn-dark-mode-config" to={`/profile`}>Volver a tu perfil</Link> </Col>
-                        ) : <Col md={{ span: 4, offset: 8 }}> <Link className="btn-shape btn-dark-mode-config" to={`/profile`}>Volver a tu perfil</Link> </Col>} */}
 
 
                         <Col md={{ span: 8 }} >
@@ -115,14 +102,13 @@ class ProjectDetails extends Component {
                             </Row>
                             <h3>Sinópsis/resumen</h3>
                             <p>{this.state.projects.synopsis}</p>
-                            <Link className="btn-shape btn-dark-mode-config" to={`/projects/story/${this.props.match.params.project_id}`}>VER HISTORIA</Link>
+                            <Link className="btn-shape btn-dark-mode-config" to={`/projects/story/${this.props.match.params.project_id}`}>Ver historia</Link>
                         </Col>
 
                         <Col className="m-auto" md={{ span: 2 }} >
                             <h2>Árbol contenido</h2>
                             {ownProject && < TreeComponent {...this.props} />}
                             {!ownProject && < TreeComponentLector {...this.props} />}
-
 
                         </Col>
 

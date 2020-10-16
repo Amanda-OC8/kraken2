@@ -40,15 +40,15 @@ class ArchiveEdit extends Component {
             .then(response => console.log(response))
             .catch(err => console.log('Error:', { err }))
 
-        this.setState({
-            originProject: this.props.match.params.project_id,
-            parentFolder: this.props.match.params.folder_id,
-            name: "",
-            description: "",
-            owner: this.props.match.params.user_id,
-            isPublic: false,
-        })
-        this.props.history.push("/projects/5f7f221e7cd378045a145123/folder/5f845fd3500c7311e89ff217/archive/5f86c1f1d81694209ee68033/details")
+        // this.setState({
+        //     originProject: this.props.match.params.project_id,
+        //     parentFolder: this.props.match.params.folder_id,
+        //     name: "",
+        //     description: "",
+        //     owner: this.props.match.params.user_id,
+        //     isPublic: false,
+        // })
+        this.props.history.push(`/projects/${this.props.match.params.project_id}/folder/${this.props.match.params.folder_id}/archive/${this.props.match.params.archive_id}/details`)
     }
 
     handleInputChange = e => {

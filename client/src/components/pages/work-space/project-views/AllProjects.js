@@ -4,13 +4,12 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import projectService from "../../../../service/project.service"
 import BaseCard from "../../../shared/cards/BaseCard"
 import Spinner from "../../../shared/spinner/Spinner"
-
 import SearchBar from '../../../layout/navbar/SearchBar'
-
 import Search from './search.svg'
+
+import projectService from "../../../../service/project.service"
 
 class AllProjects extends Component {
     constructor(props) {
